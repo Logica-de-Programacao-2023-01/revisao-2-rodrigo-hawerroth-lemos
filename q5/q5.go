@@ -23,6 +23,16 @@ type Sale struct {
 }
 
 func CalculateTotalSales(sales map[string]*Sale) float64 {
-	// Seu código aqui
-	return 0
+	if sales == nil {
+		return 0
+	}
+	valorTotal := 0.0
+
+	for _, c := range sales {
+
+		for _, produto := range c.Products {
+			valorTotal += produto.Price
+		}
+	}
+	return valorTotal
 }
